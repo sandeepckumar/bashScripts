@@ -2,22 +2,22 @@
 
 ###################################################################
 #Script Name	:   swap.sh                                                                                           
-#Description	:   Prints swap utlization of all process and sorts with given args.                                                                              
+#Description	:   Prints swap utlization of all running process and sorts with given args.                                                                              
 #Args           :   pid (default) | kb | name                                                                                        
 #Author       	:   Sandeep C Kumar                                                
 #Email         	:   sandeepkchenna@gmail.com                                           
 ###################################################################
 
-SCRIPT_NAME=`basename $0`
+SCRIPT_NAME=`basename $0`;
 
-SORT="kb" # first parameter {pid|kb|name}, default : kb
+SORT="kb"; # first parameter {pid|kb|name}, default : kb
 
-[ "$1" != "" ] && { SORT="$1"}
+[ "$1" != "" ] && { SORT="$1"; }
 
 [ ! -x `which mktemp` ] && { echo "ERROR: mktemp not installed!"; exit; }
 
-MKTEMP=`which mktemp`
-TMP=`${MKTEMP} -d`
+MKTEMP=`which mktemp`;
+TMP=`${MKTEMP} -d`;
 
 [ ! -d "${TMP}" ] && { echo "ERROR: creating temp dir failed!"; exit; }
 
@@ -69,5 +69,6 @@ case "${SORT}" in
         echo "==================================================";
         cat ${TMP}/${SCRIPT_NAME}.pid | sort -rh;
         ;;
-esac
-rm -fR "${TMP}"
+esac;
+
+rm -rf "${TMP}/"
