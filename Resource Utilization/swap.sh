@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	:   swap.sh                                                                                           
+#Description	:   Prints swap utlization of all process and sorts with given args.                                                                              
+#Args           :   pid (default) | kb | name                                                                                        
+#Author       	:   Sandeep C Kumar                                                
+#Email         	:   sandeepkchenna@gmail.com                                           
+###################################################################
+
 SCRIPT_NAME=`basename $0`
 
 SORT="kb" # first parameter {pid|kb|name}, default : kb
