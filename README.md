@@ -1,1 +1,1 @@
-""" Collection of Bash Scripts """
+'''Collection of Bash Scripts'''
