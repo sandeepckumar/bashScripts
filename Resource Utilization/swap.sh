@@ -29,10 +29,12 @@ SUM=0;
 OVERALL=0;
 
 echo "${OVERALL}" > ${TMP}/${SCRIPT_NAME}.overall;
+echo;
+echo -n "Processing.."
 
 for DIR in `find /proc/ -maxdepth 1 -type d -regex "^/proc/[0-9]+"`; do
     PID=`echo $DIR | cut -d / -f 3`
-    PROGNAME=`ps -p $PID -o cmd --no-headers`
+    PROGNAME=`ps -p $PID -o cmd --no-headers | cut -c1-100`
 
     for SWAP in `grep Swap $DIR/smaps 2>/dev/null | awk '{ print $2 }'`; do 
         let SUM=$SUM+$SWAP
@@ -49,7 +51,9 @@ for DIR in `find /proc/ -maxdepth 1 -type d -regex "^/proc/[0-9]+"`; do
     SUM=0
 done
 
-echo "${OVERALL} > ${TMP}/${SCRIPT_NAME}.overall";
+echo;
+
+echo "${OVERALL}" > ${TMP}/${SCRIPT_NAME}.overall;
 echo;
 echo "Overall swap usage: ${OVERALL} KB";
 echo "==================================================";
@@ -70,5 +74,6 @@ case "${SORT}" in
         cat ${TMP}/${SCRIPT_NAME}.pid | sort -rh;
         ;;
 esac;
+echo;
 
 rm -rf "${TMP}/"
