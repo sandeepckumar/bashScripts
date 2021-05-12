@@ -19,7 +19,7 @@ LKEY=`echo $KEY | tr '[:upper:]' '[:lower:]'`
 
 STR=`grep -i $PATTERN $CONF`
 
-if [[ "$STR" != *"$LKEY" ]]; then
+if [[ "$STR" != *"$LKEY"* ]]; then
     sed -i "/^$PATTERN/s/$/,$LKEY/" $CONF && { echo; echo "SUCESS: the key $LKEY has been added to the file."; echo; }
 else
     echo 
