@@ -25,7 +25,11 @@ else
     echo "WARN: provided key is already present in the file.";
 fi 
 
+# TODO
 
+# Take multiple keys as input and append
+# Add error handling for args
+# Set defaults & warning before updating the conf file
 
 
 
