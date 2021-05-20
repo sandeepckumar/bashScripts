@@ -16,7 +16,7 @@ buff="$(echo $mem_avail | awk '{print $6}')"
 total_avail=$((free_mem + cache + buff))
 used_swap="$(echo "$curr_mem" | grep 'Swap:' | awk '{print $3}')
 
-echo -e "Total Free memory:\t$total_avail kB ($((total_free / 1024)) MB)\nUsed swap:\t$used_swap kB ($((used_swap / 1024)) MB)"
+echo -e "Total Free memory:\t$total_avail kB $((total_free / 1024)) MB\nUsed swap:\t$used_swap kB $((used_swap / 1024)) MB"
 
 if [[ $used_swap -eq 0 ]]; then
     echo "Swap is not in use."
