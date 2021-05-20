@@ -3,7 +3,7 @@
 ###################################################################
 #Script Name	:   swap.sh                                                                                           
 #Description	:   Toggles swap (Executes only when there is enough free memory)                                                                              
-#Args           :                                                                                          
+#Args           :   -none-                                                                                       
 #Author       	:   Sandeep C Kumar                                                
 #Email         	:   sandeepkchenna@gmail.com                                           
 ###################################################################
