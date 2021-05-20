@@ -15,12 +15,12 @@ LKEY=`echo $KEY | tr '[:upper:]' '[:lower:]'`
 
 [ "$1" != "" ] && { CONF="$1"; }
 [ "$2" == "" ] && { echo "Error: keytype is missing!"; exit 1; }
-[ ! -f "$CONF" ] && { echo "ERROR: file doesn't exist!"; exit 1; }
+[ ! -f "$CONF" ] && { echo "ERROR: incorrect path provided; file doesn't exist!"; exit 1; }
 
 STR=`grep -i $PATTERN $CONF`
 
 if [[ "$STR" != *"$LKEY"* ]]; then
-    sed -i "/^$PATTERN/s/$/,$LKEY/" $CONF && { echo; echo "SUCESS: the key $LKEY has been added to the file."; echo; }
+    sed -i "/^$PATTERN/s/$/,$LKEY/" $CONF && { echo; echo "SUCCESS: the key $LKEY has been added to the file."; echo; }
 else
     echo 
     echo "WARN: provided key is already present in the file.";
