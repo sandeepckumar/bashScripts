@@ -13,7 +13,7 @@ mem_avail="$(echo "$curr_men" | grep 'Mem:')"
 free_mem="$(echo $mem_avail | awk '{print $4}')"
 cache="$(echo $mem_avail | awk '{print $7}')"
 buff="$(echo $mem_avail | awk '{print $6}')"
-total_avail=$((free_mem + cahe + buff))
+total_avail=$((free_mem + cache + buff))
 used_swap="$(echo "$curr_mem" | grep 'Swap:' | awk '{print $3}')
 
 echo -e "Total Free memory:\t$total_avail kB ($((total_free / 1024)) MB)\nUsed swap:\t$used_swap kB ($((used_swap / 1024)) MB)"
