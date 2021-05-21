@@ -23,7 +23,7 @@ used_swap="$(echo "$curr_mem" | grep 'Swap:' | awk '{print $3}')"
 
 echo "================================================"
 
-echo -e "${YELLOW}Free memory : $total_avail kB $((total_free / 1024)) MB
+echo -e "${YELLOW}Free memory : $total_avail kB $((total_avail / 1024)) MB
   Used swap : $used_swap kB $((used_swap / 1024)) MB${ENDCOLOR}"
 
 echo "================================================"
